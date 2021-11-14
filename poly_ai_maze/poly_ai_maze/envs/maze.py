@@ -32,7 +32,7 @@ class PolyAIMaze(gym.Env):
         self.last_action = None
 
     def _next_observation(self):
-        return self.world
+        return self.world.copy()
 
     def check_available_mov(self, new_x, new_y):
         """Check if the new position is available."""
@@ -121,5 +121,4 @@ class PolyAIMaze(gym.Env):
         self.current_step = 0
         self.max_step = 200
         self.world = WORLD
-        return self.world
-    
+        return self.world.copy()
