@@ -6,6 +6,18 @@ import sys
 sys.path.insert(0, 'poly_ai_maze/poly_ai_maze/envs')
 from utils import *
 
+WORLD = np.array([[0, 2, 0, 0, 0, 2, 0, 0, 0, 0],
+                               [0, 2, 0, 2, 0, 2, 0, 0, 2, 0],
+                               [0, 2, 0, 2, 0, 2, 0, 0, 2, 0],
+                               [0, 0, 0, 2, 0, 0, 0, 0, 2, 0],
+                               [0, 2, 0, 2, 2, 3, 2, 2, 2, 0],
+                               [0, 2, 2, 2, 0, 0, 0, 0, 0, 0],
+                               [0, 0, 0, 2, 0, 2, 2, 2, 3, 2],
+                               [0, 2, 0, 2, 0, 0, 0, 0, 0, 4],
+                               [0, 2, 0, 2, 2, 2, 2, 2, 2, 3],
+                               [1, 2, 0, 0, 0, 0, 0, 0, 0, 0],
+                               ])
+
 
 class PolyAIMaze(gym.Env):
     def __init__(self):
@@ -104,19 +116,20 @@ class PolyAIMaze(gym.Env):
         self.success_episode.append(
             'Success' if win_or_lose == 'W' else 'Failure')
 
+    def _randomize_position(self):
+        """Reset the position of the user."""
+        f_pos_x, f_pos_y = np.where(self.world == 0)
+        user_x, user_y = np.where(self.world == 1)
+        index = np.random.randint(0, len(f_pos_x))
+        new_x, new_y = f_pos_x[index], f_pos_y[index]
+        self.world[user_x, user_y] = 0
+        self.world[new_x, new_y] = 1
+
+
     def reset(self):
         self.state = 'P'
         self.current_step = 0
         self.max_step = 200
-        self.world = np.array([[0, 2, 0, 0, 0, 2, 0, 0, 0, 0 ],
-                               [0, 2, 0, 2, 0, 2, 0, 0, 2, 0 ],
-                               [0, 2, 0, 2, 0, 2, 0, 0, 2, 0 ],
-                               [0, 0, 0, 2, 0, 0, 0, 0, 2, 0 ],
-                               [0, 2, 0, 2, 2, 3, 2, 2, 2, 0],
-                               [0, 2, 2, 2, 0, 0, 0, 0, 0, 0],
-                               [0, 0, 0, 2, 0, 2, 2, 2, 3, 2],
-                               [0, 2, 0, 2, 0, 0, 0, 0, 0, 4],
-                               [0, 2, 0, 2, 2, 2, 2, 2, 2, 3],
-                               [1, 2, 0, 0, 0, 0, 0, 0, 0, 0],
-                               ])
+        self.world = WORLD
+        self.world = self._randomize_position()
         return self.world
