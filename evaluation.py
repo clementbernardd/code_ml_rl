@@ -27,6 +27,7 @@ class EvalRL(object):
         scores = []
         for i in range(self.N):
             np.random.seed(i)
+            print(self.solution)
             self.solution.reset()
             score = self.solve(self.env, self.solution, n_episodes=self.n_episodes,
                                MAX_REWARD=self.MAX_REWARD, verbose=verbose)
