@@ -126,9 +126,14 @@ class PolyAIMaze(gym.Env):
         self.world[new_x, new_y] = 1
 
     def reset(self):
+        return self._reset(is_random=True)
+
+    def _reset(self, is_random):
+        """Reset without random position for the user."""
         self.state = 'P'
         self.current_step = 0
         self.max_step = 200
         self.world = WORLD
-        self._randomize_position()
+        if is_random:
+            self._randomize_position()
         return self.world
