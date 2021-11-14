@@ -7,7 +7,7 @@ import fire
 
 class EvalRL(object):
     """Class that evaluates the RL convergence algorithms"""
-    def __init__(self, env, solution, n_episodes=10000, MAX_REWARD=450, N=50):
+    def __init__(self, env, solution, n_episodes=1000, MAX_REWARD=450, N=10):
         """
         params :
             - env : the environment to use
@@ -27,7 +27,6 @@ class EvalRL(object):
         scores = []
         for i in range(self.N):
             np.random.seed(i)
-            print(self.solution)
             self.solution.reset()
             score = self.solve(self.env, self.solution, n_episodes=self.n_episodes,
                                MAX_REWARD=self.MAX_REWARD, verbose=verbose)
