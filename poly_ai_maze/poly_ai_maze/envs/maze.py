@@ -133,7 +133,7 @@ class PolyAIMaze(gym.Env):
         self.state = 'P'
         self.current_step = 0
         self.max_step = 200
-        self.world = WORLD
+        self.world = WORLD.copy()
         if is_random:
             self._randomize_position()
         return self.world
