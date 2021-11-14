@@ -51,7 +51,7 @@ def show_env(world, action):
     for line in out:
         print(line)
     if action is not None :
-        print(" "*5 +  "({})\n".format(ACTION_CONVERSION[action]))
+        print(" "*7 +  "({})\n".format(ACTION_CONVERSION[action]))
     return out
 
 def show(text):
