@@ -85,8 +85,7 @@ class PolyAIMaze(gym.Env):
     def step(self, action):
         self._take_action(action)
         self.current_step+=1
-
-        if self.state == 'W':
+        if self.state == 'W' and self.current_step < self.max_step:
             show("*" * 25 + " Maze is solved " + "*" * 25)
             reward = 500
             done = True
