@@ -94,7 +94,7 @@ class PolyAIMaze(gym.Env):
 
     def render(self, mode='human'):
         """Print the maze and the given action."""
-        return show_env(self.world, self.last_action)
+        show_env(self.world, self.last_action)
 
     def render_episode(self, win_or_lose):
         self.success_episode.append(
