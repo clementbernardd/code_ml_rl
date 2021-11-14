@@ -50,7 +50,7 @@ class EvalRL(object):
             all_r.append(rewards)
             all_rewards.append(rewards)
             if np.mean(list(all_rewards)) >= MAX_REWARD and len(list(all_rewards)) == 50:
-                return e
+                return e+1
         if verbose:
             plt.plot(list(all_r))
             plt.show()
