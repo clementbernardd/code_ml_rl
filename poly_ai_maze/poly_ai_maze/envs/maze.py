@@ -120,5 +120,5 @@ class PolyAIMaze(gym.Env):
         self.state = 'P'
         self.current_step = 0
         self.max_step = 200
-        self.world = WORLD
-        return self.world.copy()
+        self.world = WORLD.copy()
+        return self.world
