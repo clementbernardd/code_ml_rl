@@ -57,15 +57,15 @@ class PolyAIMaze(gym.Env):
             # Goes down
             new_x = x+1
             new_y = y
-        elif action == 1 :
+        elif action == 1:
             # Goes up
             new_x = x-1
             new_y = y
-        elif action == 2 :
+        elif action == 2:
             # Goes right
             new_x = x
             new_y = y+1
-        elif action == 3 :
+        elif action == 3:
             # Goes left
             new_x = x
             new_y = y-1
@@ -85,11 +85,12 @@ class PolyAIMaze(gym.Env):
     def step(self, action):
         self._take_action(action)
         self.current_step+=1
+
         if self.state == 'W' and self.current_step < self.max_step:
             show("*" * 25 + " Maze is solved " + "*" * 25)
             reward = 500
             done = True
-        elif self.state == 'L':
+        elif self.state == 'L' or self.current_step > self.max_step:
             show("*" * 25 + " Game over " + "*" * 25)
             reward = -500
             done = True
