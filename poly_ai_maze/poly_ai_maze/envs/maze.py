@@ -105,7 +105,7 @@ class PolyAIMaze(gym.Env):
             self.render_episode(self.state)
             self.current_episode+=1
 
-        obs = self._next_observation()
+        obs = self._next_observation().copy()
         return obs, reward, done, {}
 
     def render(self, mode='human'):
