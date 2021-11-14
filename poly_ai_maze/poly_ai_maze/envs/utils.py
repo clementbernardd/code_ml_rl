@@ -3,22 +3,22 @@ class bcolors:
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
     OKGREEN = '\033[92m'
-    RED = '\033[44m'
+    RED = '\033[32m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m',
     BIGBOLD= '\033[97m'
 
 # Dictionnary to convert the output into colours
-CONVERT_COLORS = {0 : bcolors.BOLD + '   '+ bcolors.ENDC,
-               1: bcolors.OKBLUE + ' ⛹ '+ bcolors.ENDC,
-               2: bcolors.BIGBOLD + ' ◽ '+ bcolors.ENDC,
-               3 : bcolors.HEADER + ' 💣'+ bcolors.ENDC,
-               4: bcolors.OKGREEN + ' 🏠'+ bcolors.ENDC,
-               5 : bcolors.RED + '+' + bcolors.ENDC,
-               6: bcolors.RED + ' | ' + bcolors.ENDC,
-               7: bcolors.RED + '---' + bcolors.ENDC,
-               8: bcolors.RED + '+' + bcolors.ENDC,
+CONVERT_COLORS = {0 : bcolors.BOLD + '👣'+ bcolors.ENDC,
+               1: bcolors.OKBLUE + '⛹'+ bcolors.ENDC,
+               2: bcolors.BIGBOLD + '⬜'+ bcolors.ENDC,
+               3 : bcolors.HEADER + '💣'+ bcolors.ENDC,
+               4: bcolors.OKGREEN + '🏠'+ bcolors.ENDC,
+               5 : bcolors.RED + '➕' + bcolors.ENDC,
+               6: bcolors.RED + '🟦' + bcolors.ENDC,
+               7: bcolors.RED + '➖' + bcolors.ENDC,
+               8: bcolors.RED + '➕' + bcolors.ENDC,
                }
 
 ACTION_CONVERSION = {
@@ -28,7 +28,8 @@ ACTION_CONVERSION = {
     3 : 'LEFT'
 }
 
-POLY_AI = [bcolors.RED + ' + ' + '--'*5 +  ' POLY.AI ' + '--'*5 + '--+ ' + bcolors.ENDC ]
+
+POLY_AI = [bcolors.RED + '🟦'*12 + bcolors.ENDC ]
 
 def convert_world(world) :
     """Class that convert the maze into colours"""
