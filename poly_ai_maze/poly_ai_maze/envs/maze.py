@@ -94,7 +94,7 @@ class PolyAIMaze(gym.Env):
             show("*" * 25 + " Game over " + "*" * 25)
             reward = -500
             done = True
-        elif self.state == 'P':
+        else :
             reward = -1
             done = False
 
