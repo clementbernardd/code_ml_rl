@@ -7,7 +7,7 @@ import fire
 
 class EvalRL(object):
     """Class that evaluates the RL convergence algorithms"""
-    def __init__(self, env, solution, n_episodes=1000, MAX_REWARD=450, N=10):
+    def __init__(self, env, solution, n_episodes=1000, MAX_REWARD=350, N=10):
         """
         params :
             - env : the environment to use
